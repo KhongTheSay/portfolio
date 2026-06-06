@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== TIÊU ĐỀ TRANG ===== -->
+  <title>Trần Đức Mạnh — Digital Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Sora (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ================================================
+       STICKY NAVBAR — Thanh điều hướng cố định trên đầu
+       ================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <!-- Logo / Tên rút gọn -->
+      <a href="#hero" class="nav-logo">Tran Duc Manh</a>
+
+      <!-- Nút hamburger (hiện trên mobile) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Danh sách link điều hướng -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero"     class="nav-link">Giới thiệu</a></li>
+        <li><a href="#projects" class="nav-link">Dự án</a></li>
+        <li><a href="#summary"  class="nav-link">Tổng kết</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ================================================
+       SECTION 1 — HERO / GIỚI THIỆU
+       ================================================ -->
+  <section id="hero" class="section hero-section">
+
+    <!-- Lớp nền hình học trang trí -->
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="hero-content fade-in">
+
+      <!-- Nhãn nhỏ phía trên -->
+      <span class="hero-tag">01 · Trang Giới thiệu</span>
+
+      <!-- ===== TÊN SINH VIÊN — chỉnh tại đây nếu cần ===== -->
+      <h1 class="hero-name"><em> Trần Đức Mạnh</em></h1>
+
+      <!-- ===== THÔNG TIN GIỚI THIỆU ===== -->
+      <p class="hero-subtitle">
+        Sinh viên năm nhất ngành Công nghệ Thông tin · UET · K70I-IT2
+      </p>
+
+      <div class="hero-overview">
+        <div>
+          <span>Hồ sơ</span>
+          <strong>Digital Portfolio</strong>
+        </div>
+        <div>
+          <span>Học phần</span>
+          <strong>Công nghệ số & AI</strong>
+        </div>
+        <div>
+          <span>Lớp</span>
+          <strong>K70I-IT2</strong>
+        </div>
+      </div>
+
+      <div class="hero-bio">
+        <div class="intro-card">
+          <span class="intro-index">01</span>
+          <div>
+            <h2>Giới thiệu bản thân</h2>
+            <p>
+              Tôi là <strong>Trần Đức Mạnh</strong>, sinh viên năm nhất yêu thích
+              <strong>lập trình Java</strong>, thuật toán và các hoạt động <strong>thể thao</strong>.
+              Tôi thích cách công nghệ biến một ý tưởng nhỏ thành sản phẩm có thể sử dụng thật,
+              đồng thời luôn cố gắng rèn luyện tư duy logic, khả năng tự học và thói quen làm việc có hệ thống.
+            </p>
+          </div>
+        </div>
+
+        <div class="intro-card">
+          <span class="intro-index">02</span>
+          <div>
+            <h2>Mục tiêu học tập & định hướng</h2>
+            <p>
+              Mục tiêu của tôi là xây dựng nền tảng vững chắc về
+              <strong>Công nghệ Thông tin</strong>, tư duy giải quyết vấn đề và ứng dụng
+              <strong>Trí tuệ nhân tạo</strong>; từ đó phát triển theo định hướng
+              <strong>kỹ sư phần mềm</strong> có khả năng tạo ra sản phẩm hữu ích.
+              Trong quá trình học, tôi ưu tiên học chắc kiến thức nền, thực hành đều và biết đánh giá lại kết quả của mình.
+            </p>
+          </div>
+        </div>
+
+        <div class="intro-card featured">
+          <span class="intro-index">03</span>
+          <div>
+            <h2>Mục tiêu của Portfolio</h2>
+            <p>
+              Portfolio này được xây dựng để <strong>thể hiện các kỹ năng số đã học</strong>
+              trong học phần <em>"Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo"</em>,
+              đồng thời là nơi <strong>lưu trữ sản phẩm cá nhân</strong> để dễ dàng truy cập,
+              chia sẻ và nhìn lại quá trình phát triển của bản thân qua từng bài tập.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nút CTA -->
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Xem dự án</a>
+        <a href="#summary"  class="btn btn-ghost">Tổng kết học phần</a>
+      </div>
+
+      <!-- Các tag kỹ năng nhanh -->
+      <div class="hero-tags">
+        <span class="pill">VNU-UET</span>
+        <span class="pill">K70I-IT2</span>
+        <span class="pill">Java</span>
+        <span class="pill">Thuật toán</span>
+        <span class="pill">Thể thao</span>
+        <span class="pill">AI Tools</span>
+        <span class="pill">Digital Literacy</span>
+        <span class="pill">Prompt Engineering</span>
+      </div>
+
+    </div>
+
+    <!-- Hình minh hoạ trang trí bên phải -->
+    <div class="hero-visual fade-in" aria-hidden="true">
+      <div class="terminal-card">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <pre class="terminal-code"><span class="t-comment">// Hello, World!</span>
+<span class="t-keyword">public class</span> <span class="t-class">Portfolio</span> {
+
+  <span class="t-keyword">public static void</span>
+  <span class="t-func">main</span>(String[] args) {
+
+    String name =
+      <span class="t-str">"Trần Đức Mạnh"</span>;
+    String major =
+      <span class="t-str">"IT @ UET · K70I-IT2"</span>;
+    String goal =
+      <span class="t-str">"Software Engineer"</span>;
+
+    System.out.<span class="t-func">println</span>(
+      <span class="t-str">"Welcome!"</span>
+    );
+  }
+}</pre>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ================================================
+       SECTION 2 — DỰ ÁN
+       ================================================ -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+
+      <div class="section-header fade-in">
+        <span class="section-label">02 · Dự án</span>
+        <h2 class="section-title">Các bài tập thực hành</h2>
+        <p class="section-desc">
+          6 bài tập thành phần được hệ thống hóa lại theo đúng yêu cầu học phần,
+          tập trung vào sản phẩm cuối cùng, quá trình thực hiện và kỹ năng số thể hiện qua từng bài.
+        </p>
+      </div>
+
+      <!-- Lưới 6 thẻ dự án -->
+      <div class="projects-grid">
+
+        <!-- ============================================================
+             BÀI 1 — Thao tác cơ bản với tệp tin và thư mục
+             ============================================================ -->
+        <article class="project-card fade-in">
+          <div class="card-header">
+            <span class="card-number">01</span>
+            <!-- ===== TÊN BÀI TẬP ===== -->
+            <h3 class="card-title">Bài 1 của mục 1.4: Thao tác cơ bản với tệp tin và thư mục</h3>
+          </div>
+          <div class="card-body">
+            <!-- ===== MỤC TIÊU BÀI 1 — chỉnh nội dung bên dưới ===== -->
+            <p class="card-label">Yêu cầu trình bày</p>
+            <p class="card-text">
+              Trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên tệp đã thiết lập,
+              kèm ảnh chụp minh họa để chứng minh quá trình thực hiện.
+            </p>
+            <p class="card-label">Sản phẩm & kỹ năng</p>
+            <p class="card-text">
+              Sản phẩm cho thấy khả năng tổ chức dữ liệu cá nhân, đặt tên khoa học,
+              quản lý tệp/thư mục và trình bày minh chứng rõ ràng.
+            </p>
+            <div class="card-tags">
+              <span>File Management</span>
+              <span>Folder Structure</span>
+              <span>Minh chứng</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- ===== CHÈN LINK BÁO CÁO / PDF BÀI 1 VÀO href="" BÊN DƯỚI ===== -->
+            <a href="baitap/Week1.2_Bai1_25020258_TranDucManh.docx.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+              Mở minh chứng Bài 1
+            </a>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             BÀI 2 — Tìm kiếm và đánh giá thông tin học thuật
+             ============================================================ -->
+        <article class="project-card fade-in">
+          <div class="card-header">
+            <span class="card-number">02</span>
+            <h3 class="card-title">Bài 2 của mục 2.4: Tìm kiếm và đánh giá thông tin học thuật</h3>
+          </div>
+          <div class="card-body">
+            <!-- ===== MỤC TIÊU BÀI 2 ===== -->
+            <p class="card-label">Yêu cầu trình bày</p>
+            <p class="card-text">
+              Trình bày kết quả tìm kiếm học thuật bằng các toán tử nâng cao và bảng đánh giá
+              nguồn tin đã thực hiện.
+            </p>
+            <p class="card-label">Sản phẩm & kỹ năng</p>
+            <p class="card-text">
+              Bài làm thể hiện kỹ năng đặt truy vấn, lọc tài liệu đáng tin cậy,
+              so sánh nguồn và đánh giá thông tin theo tiêu chí rõ ràng.
+            </p>
+            <div class="card-tags">
+              <span>Academic Search</span>
+              <span>Source Evaluation</span>
+              <span>Critical Thinking</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- ===== CHÈN LINK BÁO CÁO / PDF BÀI 2 ===== -->
+            <a href="baitap/Week3.4_Bai2_25020258%20TranDucManh.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+              Mở minh chứng Bài 2
+            </a>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             BÀI 3 — Viết Prompt hiệu quả
+             ============================================================ -->
+        <article class="project-card fade-in">
+          <div class="card-header">
+            <span class="card-number">03</span>
+            <h3 class="card-title">Bài 2 của mục 3.4: Viết Prompt hiệu quả cho các tác vụ học tập</h3>
+          </div>
+          <div class="card-body">
+            <!-- ===== MỤC TIÊU BÀI 3 ===== -->
+            <p class="card-label">Yêu cầu trình bày</p>
+            <p class="card-text">
+              Trình bày sự so sánh giữa Prompt ban đầu và Prompt cải tiến,
+              kèm kết quả đầu ra từ AI để thấy rõ hiệu quả của cách viết Prompt.
+            </p>
+            <p class="card-label">Sản phẩm & kỹ năng</p>
+            <p class="card-text">
+              Bài làm thể hiện khả năng giao nhiệm vụ cho AI, bổ sung ngữ cảnh,
+              kiểm soát đầu ra và đánh giá chất lượng phản hồi.
+            </p>
+            <div class="card-tags">
+              <span>Prompt Engineering</span>
+              <span>AI Output</span>
+              <span>So sánh</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- ===== CHÈN LINK BÁO CÁO / PDF BÀI 3 ===== -->
+            <a href="baitap/Week5_6_Bai3_25020258%20TranDucManh.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+              Mở minh chứng Bài 3
+            </a>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             BÀI 4 — Công cụ hợp tác trực tuyến
+             ============================================================ -->
+        <article class="project-card fade-in">
+          <div class="card-header">
+            <span class="card-number">04</span>
+            <h3 class="card-title">Bài 3 của mục 4.4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</h3>
+          </div>
+          <div class="card-body">
+            <!-- ===== MỤC TIÊU BÀI 4 ===== -->
+            <p class="card-label">Yêu cầu trình bày</p>
+            <p class="card-text">
+              Trình bày minh chứng về việc sử dụng công cụ quản lý dự án nhóm
+              và cách thức phối hợp trực tuyến trong quá trình làm việc.
+            </p>
+            <p class="card-label">Sản phẩm & kỹ năng</p>
+            <p class="card-text">
+              Sản phẩm làm nổi bật kỹ năng phân chia nhiệm vụ, theo dõi tiến độ,
+              trao đổi online và lưu vết hoạt động nhóm.
+            </p>
+            <div class="card-tags">
+              <span>Collaboration</span>
+              <span>Project Tracking</span>
+              <span>Teamwork</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- ===== CHÈN LINK BÁO CÁO / PDF BÀI 4 ===== -->
+            <a href="baitap/bai-4-25020258-tran-duc-manh.docx" class="btn btn-outline" target="_blank" rel="noopener">
+              Mở minh chứng Bài 4
+            </a>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             BÀI 5 — Sáng tạo nội dung với AI
+             ============================================================ -->
+        <article class="project-card fade-in">
+          <div class="card-header">
+            <span class="card-number">05</span>
+            <h3 class="card-title">Bài 2 của mục 5.4: Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</h3>
+          </div>
+          <div class="card-body">
+            <!-- ===== MỤC TIÊU BÀI 5 ===== -->
+            <p class="card-label">Yêu cầu trình bày</p>
+            <p class="card-text">
+              Trưng bày sản phẩm nội dung số hoàn thiện như hình ảnh, video hoặc bài viết
+              được hỗ trợ bởi AI tạo sinh.
+            </p>
+            <p class="card-label">Sản phẩm & kỹ năng</p>
+            <p class="card-text">
+              Bài làm thể hiện khả năng dùng AI như công cụ hỗ trợ ý tưởng,
+              tạo bản nháp, biên tập lại nội dung và hoàn thiện sản phẩm cuối.
+            </p>
+            <div class="card-tags">
+              <span>Generative AI</span>
+              <span>Content Creation</span>
+              <span>Biên tập</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- ===== CHÈN LINK BÁO CÁO / PDF BÀI 5 ===== -->
+            <a href="baitap/bai5%20-25020258-tran-duc-manh.docx" class="btn btn-outline" target="_blank" rel="noopener">
+              Mở minh chứng Bài 5
+            </a>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             BÀI 6 — AI có trách nhiệm
+             ============================================================ -->
+        <article class="project-card fade-in">
+          <div class="card-header">
+            <span class="card-number">06</span>
+            <h3 class="card-title">Bài 4 của mục 6.4: Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</h3>
+          </div>
+          <div class="card-body">
+            <!-- ===== MỤC TIÊU BÀI 6 ===== -->
+            <p class="card-label">Yêu cầu trình bày</p>
+            <p class="card-text">
+              Trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm,
+              dựa trên các nghiên cứu và tình huống đã tìm hiểu.
+            </p>
+            <p class="card-label">Sản phẩm & kỹ năng</p>
+            <p class="card-text">
+              Sản phẩm thể hiện nhận thức về đạo đức AI, quyền riêng tư,
+              tính minh bạch, kiểm chứng thông tin và trách nhiệm của người sử dụng.
+            </p>
+            <div class="card-tags">
+              <span>Responsible AI</span>
+              <span>Ethics</span>
+              <span>Research</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- ===== CHÈN LINK BÁO CÁO / PDF BÀI 6 ===== -->
+            <a href="baitap/B%C3%A0i%20t%E1%BA%ADp%20tu%E1%BA%A7n%20%206.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+              Mở minh chứng Bài 6
+            </a>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ================================================
+       SECTION 3 — TỔNG KẾT
+       ================================================ -->
+  <section id="summary" class="section summary-section">
+    <div class="container">
+
+      <div class="section-header fade-in">
+        <span class="section-label">03 · Tổng kết</span>
+        <h2 class="section-title">Nhìn lại hành trình</h2>
+        <p class="section-desc">
+          Tóm tắt những trải nghiệm, kỹ năng và bài học quan trọng sau khi hoàn thành
+          các bài tập thành phần trong học phần.
+        </p>
+      </div>
+
+      <div class="summary-grid">
+
+        <!-- Khối 1: Trải nghiệm & Cảm nhận -->
+        <div class="summary-card fade-in">
+          <div class="summary-icon">🚀</div>
+          <h3 class="summary-card-title">Trải nghiệm &amp; Cảm nhận</h3>
+          <!-- ===== NỘI DUNG CẢM NHẬN — chỉnh tại đây ===== -->
+          <p>
+Học phần này đã mang lại cho tôi một bước chuyển biến mạnh mẽ mang tính bước ngoặt, thay đổi hoàn toàn tư duy và cách tiếp cận công nghệ của bản thân. Trước khi tham gia khóa học, góc nhìn của tôi về các công cụ số chỉ dừng lại ở mức độ nhận biết bề nổi—nghĩa là "chỉ biết tên, biết sự tồn tại của chúng" một cách mơ hồ. Tuy nhiên, sau khi đồng hành qua từng bài học, tôi đã thực sự bước qua ranh giới đó để biết cách làm chủ và ứng dụng chúng một cách linh hoạt, thực tế vào từng tình huống học tập cụ thể.
+          </p>
+        </div>
+
+        <!-- Khối 2: Kiến thức & Kỹ năng -->
+        <div class="summary-card fade-in">
+          <div class="summary-icon">🧠</div>
+          <h3 class="summary-card-title">Kiến thức &amp; Kỹ năng đã học</h3>
+          <!-- ===== DANH SÁCH TAG KỸ NĂNG — thêm/bỏ/sửa tùy ý ===== -->
+          <div class="skill-tags">
+            <span class="skill-tag">Quản lý tệp &amp; CLI</span>
+            <span class="skill-tag">Đánh giá nguồn tin</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">Cộng tác trực tuyến</span>
+            <span class="skill-tag">Generative AI</span>
+            <span class="skill-tag">AI Ethics</span>
+            <span class="skill-tag">Digital Literacy</span>
+            <span class="skill-tag">Tư duy phản biện</span>
+            <span class="skill-tag">Tạo nội dung số</span>
+          </div>
+        </div>
+
+        <!-- Khối 3: Tâm đắc & Thách thức -->
+        <div class="summary-card fade-in">
+          <div class="summary-icon">💡</div>
+          <h3 class="summary-card-title">Tâm đắc &amp; Thách thức</h3>
+          <!-- ===== NỘI DUNG TÂM ĐẮC / THÁCH THỨC — chỉnh tại đây ===== -->
+          <div class="highlight-block">
+            <p class="highlight-label">✨ Điểm tâm đắc nhất</p>
+            <!-- ===== ĐIỂM TÂM ĐẮC ===== -->
+            <p>
+              Nhận ra rằng <strong>AI là công cụ hỗ trợ và khuếch đại tư duy</strong>,
+              không thay thế hoàn toàn tư duy của người học. Muốn AI trả lời tốt,
+              người dùng phải biết đặt yêu cầu rõ ràng, cung cấp ngữ cảnh và kiểm chứng kết quả.
+            </p>
+          </div>
+          <div class="challenge-block">
+            <p class="highlight-label">⚡ Thách thức đã vượt qua</p>
+            <!-- ===== THÁCH THỨC ===== -->
+            <p>
+              Khó nhất là biến kết quả thực hành thành một sản phẩm trình bày mạch lạc.
+              Tôi phải chọn lọc minh chứng, viết lại nội dung ngắn gọn và sắp xếp portfolio
+              sao cho người xem có thể hiểu nhanh quá trình học của mình.
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /summary-grid -->
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ================================================
+       FOOTER
+       ================================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- ===== BẢN QUYỀN — chỉnh năm nếu cần ===== -->
+      <p>© 2026 <strong>Trần Đức Mạnh</strong> — VNU-UET</p>
+      <p class="footer-sub">Môn: Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo</p>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

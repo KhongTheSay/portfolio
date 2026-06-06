@@ -1,0 +1,870 @@
+/* ================================================================
+   DIGITAL PORTFOLIO — style.css
+   Tác giả: Trần Đức Mạnh · VNU-UET
+   Phong cách: Dark-tech minimal với accent xanh lục-neon tinh tế
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   1. BIẾN MÀU & THIẾT LẬP GỐC (Design Tokens)
+   ---------------------------------------------------------------- */
+:root {
+  /* Màu nền & bề mặt */
+  --bg:          #0b0f19;   /* Nền tổng thể — xanh đêm sâu */
+  --surface:     #111827;   /* Nền card / section xen kẽ */
+  --surface-2:   #1a2236;   /* Nền card khi hover */
+  --border:      #1f2d45;   /* Viền */
+  --border-light:#2a3f5f;   /* Viền sáng hơn */
+
+  /* Màu chữ */
+  --text-primary:   #e8edf5;
+  --text-secondary: #8a9ab5;
+  --text-muted:     #4a5568;
+
+  /* Màu nhấn chính (accent) — xanh cyan/teal */
+  --accent:         #00d4aa;
+  --accent-dim:     rgba(0, 212, 170, 0.12);
+  --accent-glow:    rgba(0, 212, 170, 0.25);
+
+  /* Màu nhấn phụ — cam vàng */
+  --accent2:        #f59e0b;
+  --accent2-dim:    rgba(245, 158, 11, 0.12);
+
+  /* Gradient */
+  --grad-hero: linear-gradient(135deg, #0b0f19 0%, #0d1a2e 50%, #091520 100%);
+  --grad-accent: linear-gradient(135deg, #00d4aa, #0ea5e9);
+
+  /* Typography */
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Spacing & Radius */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --section-pad: clamp(60px, 8vw, 120px);
+
+  /* Transition */
+  --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ----------------------------------------------------------------
+   2. RESET & BASE
+   ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* offset cho sticky navbar */
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+
+/* Lớp cuộn mượt mà cho các phần tử được kích hoạt bằng JS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------------------------------------------
+   3. TIỆN ÍCH (Utilities)
+   ---------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 40px);
+}
+
+.section {
+  padding: var(--section-pad) 0;
+}
+
+/* ----------------------------------------------------------------
+   4. NAVBAR
+   ---------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 64px;
+  background: rgba(11, 15, 25, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow var(--trans), background var(--trans);
+}
+.navbar.scrolled {
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+  background: rgba(11, 15, 25, 0.96);
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 40px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  transition: opacity var(--trans);
+}
+.nav-logo:hover { opacity: 0.8; }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 16px;
+  border-radius: 100px;
+  transition: color var(--trans), background var(--trans);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Hamburger (mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--trans), opacity var(--trans);
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ----------------------------------------------------------------
+   5. BUTTONS
+   ---------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--trans);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--grad-accent);
+  color: #0b0f19;
+  border-color: transparent;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  font-size: 0.82rem;
+  padding: 9px 20px;
+  width: 100%;
+  justify-content: center;
+}
+.btn-outline:hover {
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+/* ----------------------------------------------------------------
+   6. HERO SECTION
+   ---------------------------------------------------------------- */
+.hero-section {
+  min-height: 100vh;
+  padding-top: calc(64px + clamp(40px, 6vw, 80px));
+  padding-bottom: clamp(60px, 8vw, 100px);
+  padding-left: clamp(20px, 5vw, 80px);
+  padding-right: clamp(20px, 5vw, 80px);
+  background: var(--grad-hero);
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 5vw, 80px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hình nền trang trí */
+.hero-bg-shapes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.08;
+}
+.shape-1 {
+  width: 600px; height: 600px;
+  background: var(--accent);
+  top: -200px; right: -100px;
+}
+.shape-2 {
+  width: 400px; height: 400px;
+  background: #0ea5e9;
+  bottom: -100px; left: -50px;
+}
+.shape-3 {
+  width: 300px; height: 300px;
+  background: var(--accent2);
+  top: 50%; left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+/* Phần nội dung bên trái */
+.hero-content {
+  flex: 1;
+  max-width: 760px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(0, 212, 170, 0.3);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.6vw, 5.1rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0;
+  margin-bottom: 18px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.hero-name em {
+  font-style: normal;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+.hero-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.hero-overview div {
+  padding: 12px 14px;
+  background: rgba(17, 24, 39, 0.62);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.hero-overview span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+
+.hero-overview strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.hero-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 34px;
+  color: var(--text-secondary);
+  font-size: 0.975rem;
+}
+.hero-bio strong { color: var(--text-primary); }
+.hero-bio em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.intro-card {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 16px;
+  padding: 18px 20px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+    rgba(17, 24, 39, 0.72);
+  border: 1px solid rgba(42, 63, 95, 0.88);
+  border-radius: var(--radius-md);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--grad-accent);
+  opacity: 0.9;
+}
+
+.intro-card.featured {
+  border-color: rgba(0, 212, 170, 0.38);
+  background:
+    linear-gradient(135deg, rgba(0, 212, 170, 0.12), rgba(14, 165, 233, 0.05)),
+    rgba(17, 24, 39, 0.86);
+}
+
+.intro-index {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #08111c;
+  background: var(--grad-accent);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(0, 212, 170, 0.2);
+}
+
+.intro-card h2 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.intro-card p {
+  color: var(--text-secondary);
+  line-height: 1.68;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 5px 13px;
+  border-radius: 100px;
+  transition: all var(--trans);
+}
+.pill:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Terminal card (bên phải hero) */
+.hero-visual {
+  flex: 0 0 auto;
+  width: clamp(280px, 30vw, 380px);
+}
+
+.terminal-card {
+  background: #0d1117;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,212,170,0.06),
+    0 24px 80px rgba(0,0,0,0.5),
+    0 0 60px rgba(0, 212, 170, 0.06);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+  padding: 14px 18px 10px;
+  background: #161b22;
+  border-bottom: 1px solid var(--border);
+}
+.dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.dot-red    { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green  { background: #28c840; }
+
+.terminal-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(0.72rem, 1.5vw, 0.83rem);
+  line-height: 1.8;
+  padding: 20px 22px 24px;
+  color: #c9d1d9;
+  white-space: pre;
+  overflow-x: auto;
+}
+.t-comment  { color: #6e7681; }
+.t-keyword  { color: #ff7b72; }
+.t-class    { color: #e3b341; }
+.t-func     { color: #d2a8ff; }
+.t-str      { color: #a5d6ff; }
+
+/* ----------------------------------------------------------------
+   7. SECTION HEADER (dùng chung)
+   ---------------------------------------------------------------- */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------
+   8. PROJECTS SECTION
+   ---------------------------------------------------------------- */
+.projects-section {
+  background: var(--surface);
+  position: relative;
+}
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+}
+
+/* Lưới 3 cột */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Thẻ dự án */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--trans), transform var(--trans), box-shadow var(--trans);
+}
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px var(--accent-glow);
+}
+
+.card-header {
+  padding: 24px 24px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(0, 212, 170, 0.25);
+  padding: 4px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.card-body {
+  flex: 1;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: -4px;
+}
+
+.card-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding-top: 4px;
+}
+
+.card-tags span {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: rgba(232, 237, 245, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 9px;
+}
+
+.card-footer {
+  padding: 0 24px 24px;
+}
+
+/* ----------------------------------------------------------------
+   9. SUMMARY SECTION
+   ---------------------------------------------------------------- */
+.summary-section {
+  background: var(--bg);
+  position: relative;
+}
+.summary-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: border-color var(--trans), transform var(--trans), box-shadow var(--trans);
+}
+.summary-card:hover {
+  border-color: var(--border-light);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+
+.summary-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.summary-card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.summary-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.summary-card strong { color: var(--text-primary); }
+
+/* Skill tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(0, 212, 170, 0.25);
+  padding: 5px 12px;
+  border-radius: 100px;
+  transition: all var(--trans);
+}
+.skill-tag:hover {
+  background: rgba(0, 212, 170, 0.2);
+  transform: scale(1.04);
+}
+
+/* Highlight blocks */
+.highlight-block,
+.challenge-block {
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 14px;
+}
+.highlight-block { background: var(--accent-dim); }
+.challenge-block {
+  border-left-color: var(--accent2);
+  background: var(--accent2-dim);
+  margin-bottom: 0;
+}
+.highlight-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary) !important;
+  margin-bottom: 8px !important;
+}
+
+/* ----------------------------------------------------------------
+   10. FOOTER
+   ---------------------------------------------------------------- */
+.site-footer {
+  background: #080c14;
+  border-top: 1px solid var(--border);
+  padding: 32px 20px;
+  text-align: center;
+}
+.footer-inner p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.footer-inner strong { color: var(--text-secondary); }
+.footer-sub {
+  font-size: 0.78rem !important;
+  margin-top: 6px;
+}
+
+/* ----------------------------------------------------------------
+   11. RESPONSIVE — Tablet (max 1024px)
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .projects-grid,
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-visual {
+    width: min(100%, 360px);
+    align-self: center;
+  }
+}
+
+/* ----------------------------------------------------------------
+   12. RESPONSIVE — Mobile (max 768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Navbar mobile */
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(11, 15, 25, 0.97);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform var(--trans), opacity var(--trans);
+    pointer-events: none;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 10px 24px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Grid xuống 1 cột */
+  .projects-grid,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+  .btn { width: 100%; justify-content: center; }
+
+  .hero-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-name { font-size: clamp(2.8rem, 12vw, 3.6rem); }
+}
+
+/* ----------------------------------------------------------------
+   13. RESPONSIVE — Small mobile (max 480px)
+   ---------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .card-header,
+  .card-body,
+  .card-footer { padding-left: 18px; padding-right: 18px; }
+  .summary-card { padding: 24px 20px; }
+
+  .hero-name {
+    font-size: clamp(2.25rem, 11vw, 2.8rem);
+  }
+}
+
+/* ----------------------------------------------------------------
+   14. ANIMATION CHO FADE-IN (delay theo thứ tự xuất hiện)
+   ---------------------------------------------------------------- */
+.fade-in:nth-child(1) { transition-delay: 0s; }
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.3s; }
+.fade-in:nth-child(5) { transition-delay: 0.4s; }
+.fade-in:nth-child(6) { transition-delay: 0.5s; }
