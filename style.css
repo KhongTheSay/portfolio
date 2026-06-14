@@ -770,6 +770,52 @@ a   { color: inherit; text-decoration: none; }
 }
 
 /* ----------------------------------------------------------------
+   10.5. GITHUB SECTION
+   ---------------------------------------------------------------- */
+.github-section {
+  background: var(--bg);
+  position: relative;
+}
+.github-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+}
+
+.github-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.github-card-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  transition: border-color var(--trans), transform var(--trans), box-shadow var(--trans);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.github-card-wrapper:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 30px var(--accent-glow);
+}
+
+.github-card-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+
+/* ----------------------------------------------------------------
    11. RESPONSIVE — Tablet (max 1024px)
    ---------------------------------------------------------------- */
 @media (max-width: 1024px) {
