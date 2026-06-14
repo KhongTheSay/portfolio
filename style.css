@@ -9,33 +9,33 @@
    ---------------------------------------------------------------- */
 :root {
   /* Màu nền & bề mặt */
-  --bg:          #06080f;   /* Nền tổng thể — đen sapphire sâu */
-  --surface:     #0c0f1d;   /* Nền card / section */
-  --surface-2:   #14192d;   /* Nền card khi hover */
-  --border:      rgba(255, 255, 255, 0.05); /* Viền mờ tinh tế */
-  --border-light:rgba(255, 255, 255, 0.09); /* Viền sáng hơn */
+  --bg:          #faf9f6;   /* Nền tổng thể — màu giấy ấm/cream */
+  --surface:     #ffffff;   /* Nền card / section */
+  --surface-2:   #f6f4ee;   /* Nền card khi hover */
+  --border:      rgba(30, 27, 75, 0.05); /* Viền mờ tinh tế */
+  --border-light:rgba(30, 27, 75, 0.1);  /* Viền sáng hơn */
 
   /* Màu chữ */
-  --text-primary:   #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted:     #475569;
+  --text-primary:   #1e1b4b;   /* Chữ chính — xanh chàm đậm (tiêu đề) */
+  --text-secondary: #475569;   /* Chữ phụ — xám slate (nội dung) */
+  --text-muted:     #64748b;   /* Chữ mờ — xám slate nhạt */
 
-  /* Màu nhấn chính (accent) — xanh sky/cyber */
-  --accent:         #38bdf8;
-  --accent-dim:     rgba(56, 189, 248, 0.1);
-  --accent-glow:    rgba(56, 189, 248, 0.2);
+  /* Màu nhấn chính (accent) — tím hoàng hôn */
+  --accent:         #6366f1;   /* Indigo */
+  --accent-dim:     rgba(99, 102, 241, 0.06);
+  --accent-glow:    rgba(99, 102, 241, 0.1);
 
-  /* Màu nhấn phụ — electric indigo */
-  --accent2:        #818cf8;
-  --accent2-dim:    rgba(129, 140, 248, 0.08);
+  /* Màu nhấn phụ — xanh lục/lam */
+  --accent2:        #0891b2;   /* Cyan */
+  --accent2-dim:    rgba(8, 145, 178, 0.05);
 
   /* Gradient */
-  --grad-hero: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, rgba(56, 189, 248, 0.04) 55%, #06080f 100%);
-  --grad-accent: linear-gradient(135deg, #38bdf8, #6366f1);
+  --grad-hero: linear-gradient(135deg, #f5f3ff 0%, #faf9f6 50%, #fef3c7 100%);
+  --grad-accent: linear-gradient(135deg, #4f46e5, #6366f1);
 
   /* Typography */
-  --font-display: 'Sora', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Instrument Serif', serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
 
   /* Spacing & Radius */
   --radius-sm:   6px;
@@ -44,7 +44,7 @@
   --section-pad: clamp(60px, 8vw, 120px);
 
   /* Transition */
-  --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ----------------------------------------------------------------
@@ -103,15 +103,15 @@ a   { color: inherit; text-decoration: none; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   height: 64px;
-  background: rgba(11, 15, 25, 0.82);
+  background: rgba(250, 249, 246, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   transition: box-shadow var(--trans), background var(--trans);
 }
 .navbar.scrolled {
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
-  background: rgba(11, 15, 25, 0.96);
+  box-shadow: 0 4px 30px rgba(30, 27, 75, 0.05);
+  background: rgba(250, 249, 246, 0.96);
 }
 
 .nav-inner {
@@ -196,18 +196,19 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .btn-primary {
-  background: var(--grad-accent);
-  color: #0b0f19;
+  background: var(--accent);
+  color: #ffffff;
   border-color: transparent;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-glow);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.25);
+  background: #4338ca;
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--text-primary);
+  color: #1e1b4b;
   border-color: var(--border-light);
 }
 .btn-ghost:hover {
@@ -254,24 +255,74 @@ a   { color: inherit; text-decoration: none; }
 .shape {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.08;
+  filter: blur(120px);
+  opacity: 0.45;
+  mix-blend-mode: multiply;
 }
 .shape-1 {
   width: 600px; height: 600px;
-  background: var(--accent);
+  background: #e0e7ff;
   top: -200px; right: -100px;
 }
 .shape-2 {
-  width: 400px; height: 400px;
-  background: #0ea5e9;
+  width: 500px; height: 500px;
+  background: #fef3c7;
   bottom: -100px; left: -50px;
 }
 .shape-3 {
-  width: 300px; height: 300px;
-  background: var(--accent2);
-  top: 50%; left: 40%;
+  width: 400px; height: 400px;
+  background: #fae8ff;
+  top: 30%; left: 30%;
   transform: translate(-50%, -50%);
+}
+
+/* Các hình vẽ nổi nghệ thuật (Floating Monet elements) */
+.float-shape {
+  position: absolute;
+  pointer-events: none;
+  color: var(--accent);
+  opacity: 0.18;
+  z-index: 1;
+  filter: drop-shadow(0 8px 20px rgba(79, 70, 229, 0.06));
+}
+.shape-starfish {
+  width: 70px;
+  height: 70px;
+  top: 15%;
+  right: 18%;
+  transform: rotate(15deg);
+  animation: float-slow 12s ease-in-out infinite;
+}
+.shape-jellyfish {
+  width: 80px;
+  height: 80px;
+  bottom: 25%;
+  left: 5%;
+  animation: float-up-down 16s ease-in-out infinite;
+  opacity: 0.14;
+}
+.shape-leaf {
+  width: 55px;
+  height: 55px;
+  top: 32%;
+  left: 45%;
+  transform: rotate(-25deg);
+  animation: float-rotate 20s linear infinite;
+  opacity: 0.12;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(15deg); }
+  50% { transform: translateY(-15px) rotate(25deg); }
+}
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) translateX(8px) rotate(-10deg); }
+}
+@keyframes float-rotate {
+  0% { transform: translate(0, 0) rotate(-25deg); }
+  50% { transform: translate(8px, -8px) rotate(155deg); }
+  100% { transform: translate(0, 0) rotate(335deg); }
 }
 
 /* Phần nội dung bên trái */
@@ -297,27 +348,33 @@ a   { color: inherit; text-decoration: none; }
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5.6vw, 5.1rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: 0;
-  margin-bottom: 18px;
-  color: var(--text-primary);
-  white-space: nowrap;
+  font-size: clamp(3.8rem, 8vw, 6.2rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: #1e1b4b;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-name span {
+  display: block;
 }
 .hero-name em {
-  font-style: normal;
-  background: var(--grad-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
 }
 
 .hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  margin-bottom: 18px;
-  font-weight: 400;
+  margin-bottom: 24px;
+  font-weight: 500;
 }
 
 .hero-overview {
@@ -329,7 +386,9 @@ a   { color: inherit; text-decoration: none; }
 
 .hero-overview div {
   padding: 12px 14px;
-  background: rgba(17, 24, 39, 0.62);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
 }
@@ -371,12 +430,10 @@ a   { color: inherit; text-decoration: none; }
   grid-template-columns: 42px 1fr;
   gap: 16px;
   padding: 18px 20px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
-    rgba(17, 24, 39, 0.72);
-  border: 1px solid rgba(42, 63, 95, 0.88);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 30px rgba(30, 27, 75, 0.03);
   position: relative;
   overflow: hidden;
 }
@@ -391,10 +448,8 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .intro-card.featured {
-  border-color: rgba(56, 189, 248, 0.3);
-  background:
-    linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.04)),
-    rgba(13, 17, 30, 0.86);
+  border-color: rgba(99, 102, 241, 0.25);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(99, 102, 241, 0.01));
 }
 
 .intro-index {
@@ -406,10 +461,10 @@ a   { color: inherit; text-decoration: none; }
   font-family: var(--font-display);
   font-size: 0.82rem;
   font-weight: 800;
-  color: #06080f;
+  color: #ffffff;
   background: var(--grad-accent);
   border-radius: var(--radius-sm);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
 }
 
 .intro-card h2 {
@@ -461,57 +516,67 @@ a   { color: inherit; text-decoration: none; }
   width: clamp(280px, 30vw, 380px);
 }
 
-.portrait-card {
+.polaroid-card {
   position: relative;
-  background: var(--surface);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  background: #ffffff;
+  padding: 16px 16px 48px 16px;
+  border-radius: 6px;
   box-shadow:
-    0 0 0 1px rgba(56, 189, 248, 0.06),
-    0 24px 80px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(56, 189, 248, 0.08);
-  transition: transform var(--trans), box-shadow var(--trans);
+    0 4px 20px rgba(30, 27, 75, 0.04),
+    0 20px 50px rgba(30, 27, 75, 0.07);
+  border: 1px solid rgba(30, 27, 75, 0.05);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(2deg);
 }
 
-.portrait-card:hover {
-  transform: translateY(-4px) scale(1.01);
+.polaroid-card:hover {
+  transform: translateY(-8px) rotate(-1deg) scale(1.02);
   box-shadow:
-    0 0 0 1px rgba(56, 189, 248, 0.15),
-    0 32px 90px rgba(0, 0, 0, 0.6),
-    0 0 80px rgba(56, 189, 248, 0.15);
+    0 10px 30px rgba(30, 27, 75, 0.08),
+    0 30px 70px rgba(30, 27, 75, 0.12);
+}
+
+.polaroid-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #eae8e2;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .portrait-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: sepia(0.08) contrast(1.01);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.portrait-card:hover .portrait-img {
-  transform: scale(1.03);
+.polaroid-card:hover .portrait-img {
+  transform: scale(1.04);
 }
 
-.portrait-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(11, 15, 25, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  padding: 6px 14px;
-  border-radius: 100px;
+.polaroid-caption {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.polaroid-caption h3 {
   font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #1e1b4b;
+  margin-bottom: 2px;
+}
+
+.polaroid-caption p {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
 .status-dot {
@@ -599,7 +664,7 @@ a   { color: inherit; text-decoration: none; }
 .project-card {
   display: flex;
   flex-direction: column;
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -790,7 +855,7 @@ a   { color: inherit; text-decoration: none; }
    10. FOOTER
    ---------------------------------------------------------------- */
 .site-footer {
-  background: #080c14;
+  background: var(--surface);
   border-top: 1px solid var(--border);
   padding: 32px 20px;
   text-align: center;

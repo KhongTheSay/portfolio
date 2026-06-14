@@ -6,10 +6,10 @@
   <!-- ===== TIÊU ĐỀ TRANG ===== -->
   <title>Trần Đức Mạnh — Digital Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Google Fonts: Sora (display) + DM Sans (body) -->
+  <!-- Google Fonts: Instrument Serif (display serif) + Plus Jakarta Sans (sans-serif body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -46,15 +46,30 @@
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
       <div class="shape shape-3"></div>
+      
+      <!-- Các hình vẽ nổi nghệ thuật (Floating Monet elements) -->
+      <svg class="float-shape shape-starfish" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M50 15 C48 30 45 42 40 45 C30 46 18 40 10 45 C20 50 35 52 42 58 C40 68 35 80 40 85 C46 78 48 68 52 65 C58 70 70 82 76 80 C70 70 65 58 63 53 C70 48 85 45 90 40 C78 38 68 40 61 36 C58 28 55 18 50 15 Z" />
+      </svg>
+      <svg class="float-shape shape-jellyfish" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M30 45 C30 25 70 25 70 45 C70 48 30 48 30 45 Z M30 45 C30 48 40 50 50 48 C60 50 70 48 70 45" />
+        <path d="M35 48 C33 58 37 70 35 82 M45 48 C48 62 43 74 46 86 M55 48 C52 58 57 70 54 82 M65 48 C68 62 63 74 65 86" stroke-linecap="round" />
+      </svg>
+      <svg class="float-shape shape-leaf" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M50 80 C25 60 25 35 50 20 C75 35 75 60 50 80 Z M50 20 L50 80" />
+      </svg>
     </div>
 
     <div class="hero-content fade-in">
 
       <!-- Nhãn nhỏ phía trên -->
-      <span class="hero-tag">01 · Trang Giới thiệu</span>
+      <span class="hero-tag">Monet-inspired Portfolio</span>
 
-      <!-- ===== TÊN SINH VIÊN — chỉnh tại đây nếu cần ===== -->
-      <h1 class="hero-name"><em> Trần Đức Mạnh</em></h1>
+      <!-- ===== TÊN SINH VIÊN ===== -->
+      <h1 class="hero-name">
+        <span>Trần Đức</span>
+        <em>Mạnh</em>
+      </h1>
 
       <!-- ===== THÔNG TIN GIỚI THIỆU ===== -->
       <p class="hero-subtitle">
@@ -138,13 +153,15 @@
 
     </div>
 
-    <!-- Ảnh chân dung sinh viên bên phải hero -->
+    <!-- Ảnh chân dung sinh viên dạng Polaroid bên phải hero -->
     <div class="hero-visual fade-in" aria-hidden="true">
-      <div class="portrait-card">
-        <img src="portrait.png" alt="Trần Đức Mạnh" class="portrait-img" />
-        <div class="portrait-badge">
-          <span class="status-dot"></span>
-          <span>Học tập tại VNU-UET</span>
+      <div class="polaroid-card">
+        <div class="polaroid-img-wrapper">
+          <img src="portrait.png" alt="Trần Đức Mạnh" class="portrait-img" />
+        </div>
+        <div class="polaroid-caption">
+          <h3>Trần Đức Mạnh</h3>
+          <p>Sinh viên K70 · VNU-UET</p>
         </div>
       </div>
     </div>
